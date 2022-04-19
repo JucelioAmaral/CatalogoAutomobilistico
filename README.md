@@ -1,0 +1,23 @@
+
+# Teste prático de back-end Webmotors.
+
+Api Restful feita em .Net SDK 5.0.406, em camadas, usando Dapper para persistencia e acesso ao banco de dados,
+Swagger para documentação da Api e SQLServer como SGBD.
+
+## Pré requisitos
+ 
+1. [Visual Studio 2019](https://visualstudio.microsoft.com/pt-br/vs/)
+
+## Como baixar o código
+
+git clone https://github.com/JucelioAmaral/CatalogoAutomobilistico.git
+
+## Como configurar a api(Backend)?
+
+1. Abrir a Visual Code ou Studio;
+2. Configurar o arquivo "appsettings.json" com a connectionString, apontando para o banco SQL server;
+3. Instalar o pacote do sql server: "Install-Package Microsoft.EntityFrameworkCore.SqlServer";
+4. Executar a api (WebMotors.Api).
+
+**API roda na porta 5001 e pode ser testada pelo link: https://localhost:5001/swagger/index.html**
+
