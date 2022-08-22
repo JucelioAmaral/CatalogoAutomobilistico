@@ -6,11 +6,19 @@ using WebMotors.Domain;
 
 namespace WebMotors.Infrastructure.Context
 {
-    public class WebMotorsContext
+    public class WebMotorsContext : DbContext
     {
-        public DbSet<Anuncio> tb_AnuncioWebmotors { get; set; }
+        public DbSet<Anuncio> tbl_AnuncioWebmotors { get; set; }
 
         static string connectionString;
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(connectionString);
+            }
+        }
 
         public WebMotorsContext(IConfiguration configuration)
         {

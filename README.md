@@ -17,7 +17,10 @@ git clone https://github.com/JucelioAmaral/CatalogoAutomobilistico.git
 1. Abrir a Visual Code ou Studio;
 2. Configurar o arquivo "appsettings.json" com a connectionString, apontando para o banco SQL server;
 3. Instalar o pacote do sql server: "Install-Package Microsoft.EntityFrameworkCore.SqlServer";
-4. Executar a api (WebMotors.Api).
+4. Abrir o Package Manager Console, alterar o "Default project" (que fica na parte superior do console) para o Class Library que encontra-se os arquivos de persistência para " ProvaTecgraf.Infrastructure"
+5. Executar o comando: Add-Migration InitialCreate;
+6. Executar o comando: Update-Database;
+7. Executar a api (WebMotors.Api).
 
 **API roda na porta 5001 e pode ser testada pelo link: https://localhost:5001/swagger/index.html**
 

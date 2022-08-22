@@ -73,7 +73,8 @@ namespace WebMotors.Api.Controllers
             }
         }
 
-        [HttpDelete("DeletaAnuncio/{IdAnuncio}")]
+        //[HttpDelete("DeletaAnuncio/{IdAnuncio}")]
+        [HttpDelete("DeletaAnuncioPeloId")]
         public async Task<IActionResult> DeletaAnuncio(int id)
         {
             try

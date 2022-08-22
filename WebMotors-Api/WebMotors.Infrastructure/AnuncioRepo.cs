@@ -25,11 +25,11 @@ namespace WebMotors.Infrastructure
             {
                 conn.Open();
                 string query = @"SELECT *
-                                 FROM tb_AnuncioWebmotors
-                                 WHERE marca like @tema
-                                    OR modelo like @tema
-                                    OR versao like @tema
-                                    OR observacao like @tema";
+                                 FROM tbl_AnuncioWebmotors
+                                 WHERE Marca like @tema
+                                    OR Modelo like @tema
+                                    OR Versao like @tema
+                                    OR Observacao like @tema";
                 Anuncio anuncio = await conn.QueryFirstOrDefaultAsync<Anuncio>
                     (sql: query, param: new { tema });
                 conn.Close();
@@ -44,7 +44,7 @@ namespace WebMotors.Infrastructure
             using (conn)
             {
                 conn.Open();
-                string query = @"SELECT * FROM tb_AnuncioWebmotors WHERE Id = @id";
+                string query = @"SELECT * FROM tbl_AnuncioWebmotors WHERE Id = @id";
                 Anuncio anuncio = await conn.QueryFirstOrDefaultAsync<Anuncio>
                     (sql: query, param: new { id });
                 conn.Close();
@@ -59,7 +59,7 @@ namespace WebMotors.Infrastructure
             using (conn)
             {
                 conn.Open();
-                string command = @"INSERT INTO tb_AnuncioWebmotors(marca, modelo, versao, ano, quilometragem, observacao) VALUES(@marca,@modelo,@versao,@ano,@quilometragem,@observacao)";
+                string command = @"INSERT INTO tbl_AnuncioWebmotors(Marca, Modelo, Versao, Ano, Quilometragem, Observacao) VALUES(@marca,@modelo,@versao,@ano,@quilometragem,@observacao)";
 
                 var result = await conn.ExecuteAsync(sql: command, param: anuncio);
                 if (result > 0)
@@ -79,13 +79,13 @@ namespace WebMotors.Infrastructure
             using (conn)
             {
                 conn.Open();
-                string command = $@"UPDATE tb_AnuncioWebmotors
-                                  SET marca = @marca,
-                                      modelo = @modelo,
-                                      versao = @versao,
-                                      ano = @ano,
-                                      quilometragem = @quilometragem,
-                                      observacao = @observacao
+                string command = $@"UPDATE tbl_AnuncioWebmotors
+                                  SET Marca = @marca,
+                                      Modelo = @modelo,
+                                      Versao = @versao,
+                                      Ano = @ano,
+                                      Quilometragem = @quilometragem,
+                                      Observacao = @observacao
                                   WHERE Id = {id} ";
                 var valor = await conn.ExecuteAsync(sql: command, param: anuncio);
                 conn.Close();
@@ -100,7 +100,7 @@ namespace WebMotors.Infrastructure
             using (conn)
             {
                 conn.Open();
-                string command = @"DELETE FROM tb_AnuncioWebmotors WHERE Id = @id";
+                string command = @"DELETE FROM tbl_AnuncioWebmotors WHERE Id = @id";
                 var valor = await conn.ExecuteAsync(sql: command, param: new { id });
                 conn.Close();
                 return valor;
