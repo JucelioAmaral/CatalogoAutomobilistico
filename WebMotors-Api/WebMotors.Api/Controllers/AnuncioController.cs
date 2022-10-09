@@ -61,7 +61,7 @@ namespace WebMotors.Api.Controllers
         {
             try
             {
-                var anuncio = await _anuncioService.UpdateAnuncio(id, model);
+                bool anuncio = await _anuncioService.UpdateAnuncio(id, model);
                 if (anuncio == false) return NoContent();
 
                 return Ok(anuncio);
@@ -79,8 +79,8 @@ namespace WebMotors.Api.Controllers
         {
             try
             {
-                var anuncio = await _anuncioService.DeleteAnuncio(id);
-                if (anuncio == null) return NoContent();
+                bool anuncio = await _anuncioService.DeleteAnuncio(id);
+                if (anuncio == false) return NoContent();
 
                 return Ok(anuncio);
             }
