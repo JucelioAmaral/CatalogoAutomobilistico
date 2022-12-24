@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebMotors.Api.Extensios;
 using WebMotors.Application;
 using WebMotors.Application.Contract;
 using WebMotors.Infrastructure;
@@ -34,13 +35,11 @@ namespace WebMotors.Api
             services.AddCors();
             services.AddControllers();
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+            services.AddApplication()
+                    .AddInfrastructure()
+                    .AddAutoMapper();
+                    
             services.AddScoped<WebMotorsContext>();
-
-            services.AddScoped<IAnuncioService, AnuncioService>();
-
-            services.AddScoped<IAnuncioRepo, AnuncioRepo>();
 
             services.AddSwaggerGen(c =>
             {
