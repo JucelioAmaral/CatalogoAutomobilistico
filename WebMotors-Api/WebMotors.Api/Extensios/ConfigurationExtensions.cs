@@ -19,7 +19,7 @@ namespace WebMotors.Api.Extensios
             return services;
         }
 
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+        public static IServiceCollection AddInfraestructure(this IServiceCollection services)
         {
             services.AddScoped<IAnuncioRepo, AnuncioRepo>();
             return services;     

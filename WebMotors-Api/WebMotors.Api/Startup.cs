@@ -36,7 +36,7 @@ namespace WebMotors.Api
             services.AddControllers();
 
             services.AddApplication()
-                    .AddInfrastructure()
+                    .AddInfraestructure()
                     .AddAutoMapper();
                     
             services.AddScoped<WebMotorsContext>();
