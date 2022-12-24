@@ -10,7 +10,7 @@ using WebMotors.Infrastructure.Contract;
 
 namespace WebMotors.Api.Extensios
 {
-    public static class ConfigurationExtensios
+    public static class ConfigurationExtensions
     {
 
         public static IServiceCollection AddApplication(this IServiceCollection services)
