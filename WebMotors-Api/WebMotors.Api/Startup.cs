@@ -50,11 +50,12 @@ namespace WebMotors.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            // Adicionado "|| env.IsProduction()" para funcionar no IIS.
+            if (env.IsDevelopment() || env.IsProduction())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebMotors.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("../swagger/v1/swagger.json", "WebMotors.Api v1"));// Adicionados dois pontos (..) antes do "/swagger/v1/swagger.json" é a solução para ser possível usar como adição de aplicação no IIS
             }
 
             app.UseHttpsRedirection();
